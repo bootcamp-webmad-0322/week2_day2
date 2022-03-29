@@ -19,7 +19,7 @@ A nivel de nomenclatura, existen:
   })
   ````
   
-A nivel de estructura, existen: 
+A nivel de declaración, existen: 
 - **Function statement**: _hoisted_, disponen de al palabra reservada `function`, de paréntesis para sus parámetros y de bloque:
   ````javascript
   function getTotals(subtotal, tax){
