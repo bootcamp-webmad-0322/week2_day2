@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // Global context: window
+        console.log('GLOBAL CONTEXT:', this)
+
+
+        // Function context: window
+        function whatsMyContext() {
+            console.log('FUNCTION CONTEXT:', this)
+        }
+        whatsMyContext()
+
+
+        const person = {
+            name: 'Ger',
+            weight: 80,
+            walk1() {
+                this.weight -= .1                               // Method context: self object
+                console.log('Ahora peso', this.weight)
+            },
+            walk2() {
+                setInterval(function () {
+                    this.weight -= .1                           // OPS! function context is window
+                    console.log('Ahora peso', this.weight)
+                }, 1000)
+            },
+            walk3() {                                           // FORBIDDEN. 
+                const popino = this
+                setInterval(function () {
+                    popino.weight -= .1
+                    console.log('Ahora peso', popino.weight)
+                }, 1000)
+            },
+            walk4() {
+                setInterval(function () {                       // YAY! .bind() declares an specific context in a function
+                    this.weight -= .1
+                    console.log('Ahora peso', this.weight)
+                }.bind(this), 1000)
+            },
+            walk5() {
+                setInterval(() => {                             // YAY! Arrow functions are not seen by this
+                    this.weight -= .1
+                    console.log('Ahora peso', this.weight)
+                }, 1000)
+            },
+        }
+
+        // person.walk1()
+        // person.walk2()
+        // person.walk3()
+        // person.walk4()
+        person.walk5()
+
+    </script>
+</body>
+
+</html>

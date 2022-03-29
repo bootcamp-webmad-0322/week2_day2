@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // Global or public scope
+        const imGlobal = 'SOY GLOBAL'
+
+        // Function or private scope
+        function whatever() {
+            const imFunction = 'SOY DE FUNCIÓN'
+        }
+
+        // Block or private scope
+        if (true) {
+            const imBlock = 'SOY DE BLOQUE'
+        }
+
+        console.log(imGlobal)
+        console.log(imFunction) // D:
+        console.log(imBlock)    // D:
+
+
+
+    </script>
+</body>
+
+</html>

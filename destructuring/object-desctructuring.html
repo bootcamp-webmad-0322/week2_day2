@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        // OLD - but gold
+        let person = {
+            name: 'Ironhacker',
+            age: 25,
+            favoriteMusic: 'Metal',
+        };
+
+        let name = person.name;
+        let age = person.age;
+        let favoriteMusic = person.favoriteMusic;
+
+        console.log(`Hello, ${name}.`);
+        console.log(`You are ${age} years old.`);
+        console.log(`Your favorite music is ${favoriteMusic}.`);
+
+
+
+
+        // NEW - Basic destructuring
+        let person2 = {
+            fullName: 'Ironhacker',
+            celiac: false,
+            music: 'Techno',
+            age: 33
+        }
+
+        const { fullName, celiac, music } = person2
+
+        console.log(`Hello, ${fullName}.`);
+        console.log(`U celiac? ${celiac}.`);
+        console.log(`Your favorite music is ${music}.`);
+
+
+
+
+
+        // NEW - Advanced destructuring (renamed variables, default values)
+        let person3 = {
+            fullName: 'Ironhacker',
+            celiac: false,
+            music: 'Techno',
+            age: 33
+        }
+
+        const { age: newAge, alive = true } = person3
+
+        console.log(`You are ${newAge} years old.`);
+        console.log(`U alive? ${alive}.`);
+
+
+
+
+
+        // NEW - Advanced destructuring (nesting)
+        let person4 = {
+            profession: 'Teacher',
+            address: {
+                street: 'Garcia Luna',
+                postalCode: 28002
+            }
+        }
+
+        const { address: { street, postalCode } } = person4
+
+        console.log(`You live in ${street}, postal code ${postalCode}`)
+
+
+
+
+    </script>
+</body>
+
+</html>
